@@ -1,0 +1,20 @@
+{
+  "name": "label-commenter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node ./lib/main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@actions/core": "^1.1.0",
+    "@actions/github": "^1.1.0"
+  },
+  "devDependencies": {
+    "typescript": "^3.6.3"
+  }
+}
