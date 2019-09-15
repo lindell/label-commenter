@@ -1,0 +1,12 @@
+name: "Label Commenter"
+description: "Write comments based on labels"
+author: "Johan Lindell"
+inputs:
+  repo-token:
+    description: "Token for the repo. Can be passed in using {{ secrets.GITHUB_TOKEN }}"
+    required: true
+  labels:
+    description: "Labels"
+runs:
+  using: "docker"
+  image: "Dockerfile"

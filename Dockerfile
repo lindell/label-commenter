@@ -4,6 +4,6 @@ ADD package* ./
 RUN npm install
 ADD . .
 
-RUN npm run build && npm start
+RUN npm run build
 
-ENTRYPOINT ["node", "/src/main.js"]
+ENTRYPOINT ["node", "/lib/main.js"]
