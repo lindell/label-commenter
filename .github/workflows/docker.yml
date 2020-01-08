@@ -1,0 +1,18 @@
+#on:
+#  push:
+#    tags:
+#      - "v*" # Push events to matching v*, i.e. v1.0, v20.15.10
+on: [push]
+
+name: Build and push docker
+
+jobs:
+  build:
+    name: Docker
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code into the Go module directory
+        uses: actions/checkout@v1
+
+      - name: Build docker
+        run: docker build -f Dockerfile.base .
