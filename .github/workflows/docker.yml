@@ -19,9 +19,7 @@ jobs:
 
       - name: Docker login
         run: |
-          docker login docker.pkg.github.com -u lindell --password ${GITHUB_PACKAGE_REGISTRY_TOKEN}
-        env:
-          GITHUB_PACKAGE_REGISTRY_TOKEN: ${{ secrets.GITHUB_PACKAGE_REGISTRY_TOKEN }}
+          docker login docker.pkg.github.com --username ${{ github.repostitory }} --password "${secrets.GITHUB_TOKEN}"
 
       - name: Docker push
         run: |
