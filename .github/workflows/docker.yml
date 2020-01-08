@@ -19,7 +19,7 @@ jobs:
 
       - name: Docker login
         run: |
-          docker login docker.pkg.github.com --username ${{ github.repostitory }} --password "${secrets.GITHUB_TOKEN}"
+          docker login docker.pkg.github.com --username ${{ github.repostitory }} --password "${{ secrets.GITHUB_TOKEN }}"
 
       - name: Docker push
         run: |
