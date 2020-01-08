@@ -1,0 +1,25 @@
+on:
+  push:
+    tags:
+      - "v*" # Push events to matching v*, i.e. v1.0, v20.15.10
+
+name: Build and push docker
+
+jobs:
+  build:
+    name: Docker
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code into the Go module directory
+        uses: actions/checkout@v1
+
+      - name: Build docker
+        run: docker build -f Dockerfile.base -t docker.pkg.github.com/lindell/label-commenter/main:latest .
+
+      - name: Docker login
+        run: |
+          docker login docker.pkg.github.com --username lindell/label-commenter --password "${{ secrets.GITHUB_TOKEN }}"
+
+      - name: Docker push
+        run: |
+          docker push docker.pkg.github.com/lindell/label-commenter/main:latest
