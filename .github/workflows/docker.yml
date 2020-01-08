@@ -15,11 +15,11 @@ jobs:
         uses: actions/checkout@v1
 
       - name: Build docker
-        run: docker build -f Dockerfile.base .
+        run: docker build -f Dockerfile.base -t docker.pkg.github.com/lindell/label-commenter/main:latest .
 
       - name: Push the image to GPR
         run: |
           docker login docker.pkg.github.com -u publisher -p "${GITHUB_PACKAGE_REGISTRY_TOKEN}"
-          docker push docker.pkg.github.com/lindell/label-commenter/main:latest
+          docker push docker.pkg.github.com/lindell/label-commenter/main
         env:
           GITHUB_PACKAGE_REGISTRY_TOKEN: ${{ secrets.GITHUB_PACKAGE_REGISTRY_TOKEN }}
